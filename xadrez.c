@@ -32,5 +32,5 @@ int main (){
         passo++;
      } while (passo < casasRainha);
 
-return 0;
+return 0; 
 }
