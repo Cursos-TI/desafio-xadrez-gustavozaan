@@ -3,9 +3,11 @@
 int main (){
 
     int i;
+    int j = 1;
     int casasTorre = 5;
     int casasBispo = 5;
     int casasRainha = 8;
+    int casasCavalo = 3;
     int contador = 0;
     int passo = 0;
 
@@ -32,5 +34,18 @@ int main (){
         passo++;
      } while (passo < casasRainha);
 
-return 0; 
+     //--- CAVALO ---
+     printf("\nMovimento da Peça: Cavalo\n");
+     for ( i = 1; i <= 2; i++)
+     {
+      printf("Baixo\n");
+     }
+   
+     while (j <= 1)
+     {
+      printf("Esquerda\n");
+      j++;
+     }
+     
+return 0;
 }
