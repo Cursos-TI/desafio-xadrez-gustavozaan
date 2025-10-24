@@ -1,51 +1,80 @@
 #include <stdio.h>
 
-int main (){
+//--- TORRE ---
+void moverTorre(int casas, int atual){
+    if(atual > casas)
+    return;
+    printf("Cima\n");
+    moverTorre(casas, atual +1);
+}
 
-    int i;
-    int j = 1;
-    int casasTorre = 5;
-    int casasBispo = 5;
-    int casasRainha = 8;
-    int casasCavalo = 3;
-    int contador = 0;
-    int passo = 0;
+//--- BISPO ---
+void moverBispo(int i, int limite){
+    if(i > limite) 
+    return;
 
-    //--- TORRE ---
-    printf("Movimento da Peça: Torre.\n");
-    for (int i = 0; i < casasTorre; i++)
+    for (int j = 1; j <= limite; j++)
     {
+        for (int h = 1; h <= limite; h++)
+        {
+            printf("Cima\n");
+            printf("Direita\n");
+        }
+        
+    }
+    moverBispo(i + 1, limite);
+    
+}
+
+//--- RAINHA ---
+void moverRainha(int casas, int atual){
+    if (atual > casas)
+    return;
+    {
+        printf("Cima\n");
         printf("Direita\n");
     }
+    moverRainha(casas, atual + 1);
+}
 
-    //--- BISPO ---
-    printf("\nMovimento da Peça: Bispo.\n");
-     while (contador < casasBispo)
-     {
-        printf("Cima Direita\n");
-        contador++;
-     }
+//--- CABALO ---
+void moverCavalo() {
+    printf("\n--- Movimento do Cavalo ---\n");
+    for (int i = 1; i <= 3; i++) { 
+        for (int j = 1; j <= 3; j++) { 
 
-     //--- RAINHA ---
-     printf("\nMovimento da Peça: Rainha.\n");
-     do
-     {
-        printf("Esquerda\n");
-        passo++;
-     } while (passo < casasRainha);
+            if (!(i == 2 && j == 1)) {
+                continue;
+            }
 
-     //--- CAVALO ---
-     printf("\nMovimento da Peça: Cavalo\n");
-     for ( i = 1; i <= 2; i++)
-     {
-      printf("Baixo\n");
-     }
-   
-     while (j <= 1)
-     {
-      printf("Esquerda\n");
-      j++;
-     }
-     
-return 0;
+            printf("Cima\n");
+            printf("Cima\n");
+            printf("Direita\n");
+
+            break;
+        }
+
+        if (i == 2) break;
+    }
+}
+
+//--- FUNÇÃO PRINCIPAL ---
+int main(){
+
+    int casasTorre = 3;
+    int casasBispo = 2;
+    int casasRainha = 3;
+
+    printf("--- Movimento da Torre ---\n");
+    moverTorre(casasTorre, 1);
+
+    printf("\n--- Movimento do Bispo ---\n");
+    moverBispo(1, casasBispo);
+
+    printf("\n--- Movimento da Rainha ---\n");
+    moverRainha(casasRainha, 1);
+
+    moverCavalo();
+
+    return 0;
 }
